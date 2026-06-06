@@ -25,4 +25,4 @@ RUN apt-get update && apt-get install -y \
                 EXPOSE ${PORT:-8123}
 
                 # Start the LangGraph server
-                CMD ["npx", "@langchain/langgraph-cli@latest", "dev", "--host", "0.0.0.0", "--port", "8123", "--no-browser"]
+                CMD ["sh", "-c", "npx @langchain/langgraph-cli@1.1.17 dev --host 0.0.0.0 --port ${PORT:-8123} --no-browser"]
