@@ -41,7 +41,8 @@ Ensure you do not make this section more than 3-6 words.
  * You should make this prompt very specific to the type of content you
  * want included/focused on in the posts.
  */
-export const POST_CONTENT_RULES = `- Focus your post on what the content covers, aims to achieve, or the findings of the marketing report. This should be concise and high level.
+export const POST_CONTENT_RULES = `- ESCREVA TODO O POST EM PORTUGUÊS BRASILEIRO. Todo o texto do post deve estar em pt-BR, independentemente do idioma original do conteúdo de origem.
+- Focus your post on what the content covers, aims to achieve, or the findings of the marketing report. This should be concise and high level.
 - Do not make the post over technical as some of our audience may not be advanced developers, but ensure it is technical enough to engage developers.
 - Keep posts short, concise and engaging
 - Limit the use of emojis to the post header, and optionally in the call to action.
