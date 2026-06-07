@@ -26,7 +26,7 @@ The first part should be the introduction or hook. This should be short and to t
 This section will contain the main content of the post. The post body should contain a concise, high-level overview of the content/product/service/findings outlined in the marketing report.
 It should focus on what the content does, shows off, or the problem it solves.
 This may include some technical details if the marketing report is very technical, however you should keep in mind your audience is not all advanced developers, so do not make it overly technical.
-Ensure this section is short, no more than 3 (short) sentences. Optionally, if the content is very technical, you may include bullet points covering the main technical aspects of the content to make it more engaging and easier to follow.
+This section should be 5 to 8 sentences. Use short paragraphs (1-2 sentences each) separated by blank lines so the post breathes on LinkedIn. Optionally, if the content is very technical, you may include bullet points covering the main technical aspects of the content to make it more engaging and easier to follow.
 Remember, the content/product/service/findings outlined in the marketing report is the main focus of this post.
 </section>
 
