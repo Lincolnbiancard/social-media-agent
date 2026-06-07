@@ -46,7 +46,7 @@ async function getUrlContentsFunc(url: string): Promise<UrlContents> {
     url,
     mode: "scrape",
     params: {
-      formats: ["markdown", "screenshot"],
+      formats: ["markdown"],
     },
   });
   const docs = await loader.load();
