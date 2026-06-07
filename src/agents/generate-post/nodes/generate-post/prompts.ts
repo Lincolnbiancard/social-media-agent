@@ -1,32 +1,30 @@
 import { getPrompts } from "../../prompts/index.js";
 
-export const GENERATE_POST_PROMPT = `You're a highly regarded marketing employee, working on crafting thoughtful and engaging content for the LinkedIn and Twitter pages.
-You've been provided with a report on some content that you need to turn into a LinkedIn/Twitter post. The same post will be used for both platforms.
-Your coworker has already taken the time to write a detailed marketing report on this content for you, so please take your time and read it carefully.
+export const GENERATE_POST_PROMPT = `You are writing your OWN opinionated LinkedIn post about the topic of the source content. You are NOT a marketing employee for any brand. Do NOT speak as a brand. Do NOT use "LangChain Community Spotlight" or any similar template prefix — those examples come from a different system and you must ignore that pattern entirely.
 
-The following are examples of LinkedIn/Twitter posts on third-party content that have done well, and you should use them as style inspiration for your post:
-<examples>
+You've been given a marketing report on a source article. Use the report ONLY as raw material: extract the strongest 2-3 ideas, then rewrite them in your own voice with conviction. The post is standalone — the reader gets full value without ever leaving the post.
+
+The examples below show the TONE, RHYTHM, and STYLE you should match (short paragraphs, direct address with "você", opinionated, no corporate language). DO NOT copy any sentence or example verbatim. DO NOT use the same topic as the examples — they are tonal references, not templates. Generate fresh, original content tied to the SOURCE article's specific ideas.
+
+<style-examples-do-not-copy-content>
 ${getPrompts().tweetExamples}
-</examples>
+</style-examples-do-not-copy-content>
 
-Now that you've seen some examples, lets's cover the structure of the LinkedIn/Twitter post you should follow.
+Structure to follow:
 ${getPrompts().postStructureInstructions}
 
-This structure should ALWAYS be followed. And remember, the shorter and more engaging the post, the better (your yearly bonus depends on this!!).
-
-Here are a set of rules and guidelines you should strictly follow when creating the LinkedIn/Twitter post:
+Rules:
 <rules>
 ${getPrompts().postContentRules}
 </rules>
 
 {reflectionsPrompt}
 
-Lastly, you should follow the process below when writing the LinkedIn/Twitter post:
+Writing process:
 <writing-process>
-Step 1. First, read over the marketing report VERY thoroughly.
-Step 2. Take notes, and write down your thoughts about the report after reading it carefully. This should include details you think will help make the post more engaging, and your initial thoughts about what to focus the post on, the style, etc. This should be the first text you write. Wrap the notes and thoughts inside a "<thinking>" tag.
-Step 3. Lastly, write the LinkedIn/Twitter post. Use the notes and thoughts you wrote down in the previous step to help you write the post. This should be the last text you write. Wrap your report inside a "<post>" tag. Ensure you write only ONE post for both LinkedIn and Twitter.
-IMPORTANT: Ensure the post header ALWAYS starts with 'LangChain Community Spotlight:' followed by the project name.
+Step 1. Read the marketing report carefully and identify the 2-3 most non-obvious or counter-intuitive ideas in it.
+Step 2. Inside <thinking> tags, jot notes: what's the contrarian angle? what's the specific mechanism behind each idea? what concrete example or consequence would make this resonate? what's the sharp takeaway?
+Step 3. Inside <post> tags, write the post. It must be in pt-BR, standalone (no source URL, no "leia mais" CTA), 8-14 sentences in the body, opinionated, with conviction. ABSOLUTELY DO NOT prepend any brand prefix like "LangChain Community Spotlight" or any other corporate header.
 </writing-process>
 
-Given these examples, rules, and the content provided by the user, curate a LinkedIn/Twitter post that is engaging and follows the structure of the examples provided.`;
+Write only ONE post.`;
