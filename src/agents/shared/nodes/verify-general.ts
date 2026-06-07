@@ -1,6 +1,5 @@
 import { LangGraphRunnableConfig } from "@langchain/langgraph";
 import { z } from "zod";
-import { FireCrawlLoader } from "@langchain/community/document_loaders/web/firecrawl";
 import { getPrompts } from "../../generate-post/prompts/index.js";
 import { VerifyContentAnnotation } from "../shared-state.js";
 import { getPageText, skipContentRelevancyCheck } from "../../utils.js";
@@ -42,23 +41,30 @@ type UrlContents = {
 };
 
 async function getUrlContentsFunc(url: string): Promise<UrlContents> {
-  const loader = new FireCrawlLoader({
-    url,
-    mode: "scrape",
-    params: {
-      formats: ["markdown"],
-    },
-  });
-  const docs = await loader.load();
-
-  const docsText = docs.map((d) => d.pageContent).join("\n");
-  if (docsText.length) {
-    return {
-      content: docsText,
-      imageUrls: docs.flatMap(
-        (d) => getImagesFromFireCrawlMetadata(d.metadata) || [],
-      ),
-    };
+  const apiKey = process.env.FIRECRAWL_API_KEY;
+  if (apiKey) {
+    const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({ url, formats: ["markdown"] }),
+    });
+    if (res.ok) {
+      const json = (await res.json()) as {
+        success?: boolean;
+        data?: { markdown?: string; metadata?: Record<string, unknown> };
+      };
+      const markdown = json?.data?.markdown ?? "";
+      if (json?.success && markdown.length) {
+        return {
+          content: markdown,
+          imageUrls:
+            getImagesFromFireCrawlMetadata(json.data?.metadata || {}) || [],
+        };
+      }
+    }
   }
 
   const text = await getPageText(url);
