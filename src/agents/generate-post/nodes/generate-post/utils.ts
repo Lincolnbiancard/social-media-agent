@@ -19,16 +19,13 @@ export function parseGeneration(generation: string): string {
 }
 
 export function formatPrompt(report: string, relevantLinks: string[]): string {
-  return `Here is the report I wrote on the content I'd like promoted by LangChain:
+  return `Here is the report I wrote on the source content used as inspiration for this standalone original post:
 <report>
 ${report}
 </report>
 
-Here are the relevant links used to create the report.
-You should remove tracking query parameters from the link, if present.
-If you are unsure whether a link's parameters are tracking, do not remove them. It's better to have a link with tracking parameters than a broken link.
-The links do NOT contribute to the post's length. They are temporarily removed from the post before the length is calculated, and re-added afterwards.
-<links>
+These are the source links used to build the report. They are CONTEXT ONLY — DO NOT INCLUDE THESE URLS IN THE POST. The post must be standalone original content; the reader should never be sent away to read the source.
+<source-context-only-do-not-include>
 ${filterLinksForPostContent(relevantLinks)}
-</links>`;
+</source-context-only-do-not-include>`;
 }

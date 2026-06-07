@@ -94,7 +94,7 @@ async function condenseOrHumanConditionalEdge(
   "condensePost" | "humanNode" | "findAndGenerateImagesSubGraph" | typeof END
 > {
   const cleanedPost = removeUrls(state.post || "");
-  if (cleanedPost.length > 280 && state.condenseCount <= 3) {
+  if (cleanedPost.length > 2000 && state.condenseCount <= 3) {
     return "condensePost";
   }
 
