@@ -18,22 +18,23 @@ export const TWEET_EXAMPLES = EXAMPLES.map(
  * If you want to make changes to how the post is structured, you
  * should update this prompt, along with the `EXAMPLES` list.
  */
-export const POST_STRUCTURE_INSTRUCTIONS = `<section key="1">
-The first part should be the introduction or hook. This should be short and to the point, ideally no more than 5 words. If necessary, you can include one to two emojis in the header, however this is not required. You should not include emojis if the post is more casual, however if you're making an announcement, you should include an emoji.
+export const POST_STRUCTURE_INSTRUCTIONS = `You are writing an ORIGINAL LinkedIn post that uses the source article as inspiration. The post must stand on its own — the reader should never need to click anywhere to get value. Treat the source as raw material for your own opinion piece.
+
+<section key="1">
+HOOK (1-2 lines): Open with a punchy, opinionated, or counter-intuitive statement that makes the reader stop scrolling. NO emojis here. NO generic openers like "Estratégia de IA para Fundadores" — that's a title, not a hook. Examples of good hook patterns: a bold claim, a question that exposes a hidden assumption, a contrarian take, a specific number/result, or a tension ("Most founders X. The good ones Y.").
 </section>
 
 <section key="2">
-This section will contain the main content of the post. The post body should contain a concise, high-level overview of the content/product/service/findings outlined in the marketing report.
-It should focus on what the content does, shows off, or the problem it solves.
-This may include some technical details if the marketing report is very technical, however you should keep in mind your audience is not all advanced developers, so do not make it overly technical.
-This section should be 5 to 8 sentences. Use short paragraphs (1-2 sentences each) separated by blank lines so the post breathes on LinkedIn. Optionally, if the content is very technical, you may include bullet points covering the main technical aspects of the content to make it more engaging and easier to follow.
-Remember, the content/product/service/findings outlined in the marketing report is the main focus of this post.
+BODY (8 to 14 sentences across 4-6 short paragraphs): This is the heart of the post. You are NOT summarizing the source — you are extracting its core insights and reframing them in your own voice as if YOU figured them out. Pull out the 2-3 most non-obvious ideas from the source and develop EACH one with:
+- the insight itself, stated plainly
+- WHY it matters (the underlying mechanic or principle)
+- a concrete example, scenario, or sharp consequence
+
+Use short paragraphs (1-3 sentences each) separated by blank lines. Vary sentence length — mix punchy one-liners with longer reflective sentences. Optionally use 1 bullet list (3-5 items max) if it sharpens a comparison or list of mistakes/principles. Speak directly to the reader with "você". Show conviction.
 </section>
 
 <section key="3">
-The final section of the post should contain a call to action. This should contain a few words that encourage the reader to click the link to the content being promoted.
-Optionally, you can include an emoji here.
-Ensure you do not make this section more than 3-6 words.
+CLOSE (1-2 lines): End with EITHER a sharp takeaway/principle the reader can save, OR an open question that invites comments. Do NOT end with "leia mais", "confira o artigo", or any CTA pointing the reader away from the post. The post is the destination.
 </section>`;
 
 /**
@@ -42,14 +43,16 @@ Ensure you do not make this section more than 3-6 words.
  * want included/focused on in the posts.
  */
 export const POST_CONTENT_RULES = `- ESCREVA TODO O POST EM PORTUGUÊS BRASILEIRO. Todo o texto do post deve estar em pt-BR, independentemente do idioma original do conteúdo de origem.
-- Focus your post on what the content covers, aims to achieve, or the findings of the marketing report. This should be concise and high level.
-- Do not make the post over technical as some of our audience may not be advanced developers, but ensure it is technical enough to engage developers.
-- Keep posts short, concise and engaging
-- Limit the use of emojis to the post header, and optionally in the call to action.
+- The post is STANDALONE original content. Do NOT summarize the source or invite the reader to "read more". Extract the source's best ideas and rewrite them as YOUR insight, in your voice.
+- NEVER include the source URL in the post body. NEVER end with "Confira", "Leia o artigo", "Guia completo 👇", or similar CTAs that send the reader away.
+- NEVER use generic titles as the first line (e.g. "Estratégia de IA para Fundadores"). Open with a real hook — an opinion, a contrarian claim, a specific number, or a tension.
+- Aim for substantive depth: 8-14 sentences in the body. Break into short paragraphs (1-3 sentences) separated by blank lines so it reads well on LinkedIn.
+- Be concrete: name mechanisms, give examples, use specific numbers when the source provides them. Avoid vague phrases like "vantagem competitiva", "transformação digital", "ROI" unless followed by something specific.
 - NEVER use hashtags in the post.
-- ALWAYS use present tense to make announcements feel immediate (e.g., "Microsoft just launched..." instead of "Microsoft launches...").
-- ALWAYS include the link to the content being promoted in the call to action section of the post.
-- You're acting as a human, posting for other humans. Keep your tone casual and friendly. Don't make it too formal or too consistent with the tone.`;
+- NEVER use emojis in the hook. Use at most 1-2 emojis total, only when they genuinely add meaning (e.g. a single 👇 before a bullet list, never as decoration).
+- Use "você" to speak directly to the reader. Show conviction — write as someone who has thought hard about this, not as a summarizer.
+- Use present tense. Vary sentence length (mix short punchy lines with longer reflective ones).
+- You're acting as a human writing their own take, posting for other humans. Casual, sharp, opinionated — never corporate, never AI-generic.`;
 
 /**
  * This should contain "business content" into the type of content you care
